@@ -1,5 +1,4 @@
-# edu-commerce-app
-# Talkable
+# bookstore-app
 
 ## 📦 Prerequisites
 - [Node.js](https://nodejs.org/)
@@ -9,8 +8,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/phatgooner/edu-commerce-app.git
-   cd edu-commerce-app
+   git clone https://github.com/phatgooner/bookstore-app.git
+   cd bookstore-app
 
 2. **Install dependencies**
    ```bash
