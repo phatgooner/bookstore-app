@@ -1,0 +1,411 @@
+:root {
+  --primary: #00bfff;
+  --secondary: #646464;
+  --light: rgb(248, 249, 250);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  .header-container {
+    font-weight: bold;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    .navbar {
+      z-index: 10;
+      background-color: white !important;
+      padding: 20px;
+
+      .nav-link {
+        color: var(--secondary);
+
+        &.active {
+          color: var(--primary);
+        }
+      }
+
+      .dropdown-item {
+        &:active {
+          background-color: var(--primary);
+        }
+      }
+    }
+  }
+
+  .footer-container {
+    background-color: white;
+    padding-top: 2rem;
+    border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+  }
+}
+
+.text-main {
+  color: var(--primary) !important;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+form {
+  .form-control {
+    &:focus {
+      border-color: var(--primary) !important;
+      box-shadow: 0 4px 8px rgba(0, 191, 255, 0.25) !important;
+    }
+  }
+
+  .form-select {
+    &:focus {
+      border-color: var(--primary) !important;
+      box-shadow: 0 4px 8px rgba(0, 191, 255, 0.25) !important;
+    }
+  }
+
+  .form-check-input {
+    &:focus {
+      border-color: var(--primary) !important;
+      box-shadow: 0 0 0 .25px rgba(0, 191, 255, 0.25) !important;
+    }
+
+    &:checked {
+      background-color: var(--primary) !important;
+      border-color: var(--primary) !important;
+    }
+  }
+}
+
+.btn {
+  &.btn-primary {
+    background-color: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+    color: white !important;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &.btn-outline-info {
+    &:hover {
+      background-color: var(--primary) !important;
+      border: 1px solid var(--primary) !important;
+      color: white !important;
+    }
+  }
+
+  &.btn-secondary {
+    background-color: var(--secondary) !important;
+    border: 1px solid var(--secondary) !important;
+    color: white !important;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &.btn-outline-primary {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+
+    &:hover {
+      background-color: var(--primary) !important;
+      border: 1px solid var(--primary) !important;
+      color: white !important;
+    }
+  }
+
+  &.btn-outline-secondary {
+    border-color: var(--secondary) !important;
+    color: var(--secondary) !important;
+
+    &:hover {
+      background-color: var(--secondary) !important;
+      border: 1px solid var(--secondary) !important;
+      color: white !important;
+    }
+  }
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  img {
+    width: calc(100% - 75vw);
+  }
+}
+
+.pagination {
+  .page-item {
+    margin: 0 4px;
+
+    .page-link {
+      color: var(--secondary);
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    &.active {
+      .page-link {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: white;
+        border-radius: 8px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.review-swiper {
+  margin: 0 auto !important;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    background-color: transparent;
+    margin: -50px 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: var(--secondary);
+  }
+
+  .review-card {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    justify-self: center;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .review-img {
+    width: 30%;
+  }
+
+  .review-content {
+    flex: 1;
+  }
+}
+
+.card {
+  .card-content {
+    &:hover {
+      background-color: rgb(248, 249, 250);
+    }
+  }
+}
+
+.teacher-list,
+.book-list {
+  form {
+    background-color: white;
+  }
+}
+
+.accordion {
+  .accordion-item {
+    padding: 0.5rem 0;
+
+    &:first-child {
+      border-top: 1px solid #dee2e6 !important;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid #dee2e6 !important;
+    }
+
+
+    .accordion-header {
+      .accordion-button {
+        font-weight: bold !important;
+        color: var(--secondary) !important;
+
+        &:not(.collapsed) {
+          background-color: transparent;
+          box-shadow: none;
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.contact-form {
+  .container {
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+.chatbot-container {
+  .btn-bubble {
+    position: fixed;
+    bottom: 4rem;
+    right: 1rem;
+    padding-bottom: 0.4rem;
+    z-index: 1000;
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .chat-area {
+    position: fixed;
+    bottom: 9rem;
+    right: 2rem;
+    width: 350px;
+    max-width: 90vw;
+    z-index: 999;
+
+    .react-chatbot-kit-chat-container {
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+      button {
+        border-radius: 0;
+      }
+
+      .react-chatbot-kit-chat-header {
+        background-color: var(--primary);
+        color: white;
+        border-radius: 0;
+      }
+
+      .react-chatbot-kit-chat-message-container {
+        scrollbar-width: none;
+
+        .options-container {
+          display: flex;
+          justify-content: end;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 10px;
+
+          .option-button {
+            padding: 8px 16px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover {
+              background-color: #009ACD;
+            }
+          }
+        }
+
+        .react-chatbot-kit-chat-bot-message-container {
+          display: flex;
+          justify-content: start;
+          gap: 1rem;
+
+          .react-chatbot-kit-chat-bot-message {
+
+            display: inline-block;
+            margin: 0;
+            width: auto;
+            max-width: 80%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            border-radius: 20px;
+            background: #eeeeee;
+            color: black;
+            text-align: justify;
+
+            .react-chatbot-kit-chat-bot-message-arrow {
+              border-right: 14px solid #eeeeee;
+            }
+          }
+        }
+
+        .react-chatbot-kit-user-chat-message-container {
+          display: flex;
+          justify-content: end;
+          gap: 1rem;
+
+          .react-chatbot-kit-user-chat-message {
+            display: inline-block;
+            margin: 0;
+            width: auto;
+            max-width: 80%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            border-radius: 20px;
+            background: var(--primary);
+            color: white;
+            text-align: justify;
+
+            .react-chatbot-kit-user-chat-message-arrow {
+              border-left: 14px solid var(--primary);
+            }
+          }
+
+        }
+      }
+
+      .react-chatbot-kit-chat-input-container {
+        .react-chatbot-kit-chat-input {
+          outline: none !important;
+          box-shadow: none !important;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+.modal-lg {
+  max-width: 80% !important;
+
+  .modal-body {
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .loading-screen {
+    img {
+      width: 50vw;
+    }
+  }
+}
