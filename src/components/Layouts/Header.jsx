@@ -22,20 +22,20 @@ const Header = () => {
                             top: 0,
                             behavior: 'smooth',
                         });
-                    }} src={logo} width={"150"} alt="logo" /></NavLink> */}                    
+                    }} src={logo} width={"150"} alt="logo" /></NavLink> */}
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">                            
+                        <Nav className="me-auto">
                             <NavLink to="/" className='nav-link'>Trang chủ</NavLink>
                             <NavLink to="/library" className='nav-link'>Tìm sách</NavLink>
-                            <NavLink to="/contact" className='nav-link'>Liên hệ</NavLink>                            
+                            {/* <NavLink to="/contact" className='nav-link'>Liên hệ</NavLink>*/}
                         </Nav>
                         {!user ?
                             <Nav className='d-flex gap-2'>
                                 <button className='btn btn-outline-info' onClick={() => { setType('login'); setShow(true); }}>Đăng nhập</button>
                                 <button className='btn btn-primary' onClick={() => { setType('signup'); setShow(true); }}>Đăng ký</button>
                             </Nav> :
-                            <NavDropdown title={`Xin chào, ${user.name}`} id="basic-nav-dropdown">                                
+                            <NavDropdown title={`Xin chào, ${user.name}`} id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to='/liked-books'>
                                     Sách yêu thích
                                 </NavDropdown.Item>
