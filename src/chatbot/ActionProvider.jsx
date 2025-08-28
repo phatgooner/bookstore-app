@@ -1,12 +1,12 @@
 import axios from "axios";
-import books from '../data/library';
+import books from '../data/generateData';
 import { createClientMessage } from "react-chatbot-kit";
 class ActionProvider {
     constructor(createChatBotMessage, setStateFunc) {
         this.createChatBotMessage = createChatBotMessage;
         this.setState = setStateFunc;
         this.createClientMessage = createClientMessage;
-    };  
+    };
 
     handleBookAdvice = () => {
         const userMsg = this.createClientMessage("Tư vấn chọn sách");
@@ -30,7 +30,7 @@ Bạn là 1 trợ lý ảo chuyên tư vấn sách của 1 nhà sách.
 Có một người dùng nhắn tin với bạn như sau: "${message}". Hãy trả lời người dùng một cách thân thiện nhất.
 Nếu tin nhắn đó của người dùng có liên quan tới tìm sách thì hãy gợi ý cho người dùng 1 quyển sách phù hợp và nêu ra lý do.
 Trung tâm có thư viện sách như sau:
-${books.map(b => `- Tiêu đề: ${b.title}, tác giả: ${b.author}, thể loại: ${b.type}, ngôn ngữ ${b.language}, giá ${b.price} USD`).join("\n")}.
+${books.map(b => `- Tiêu đề: ${b.title}, tác giả: ${b.author}, thể loại: ${b.type}, ngôn ngữ ${b.language}, giá gốc ${b.price} USD, khuyến mãi ${b.discount}%, giá khuyến mãi ${b.currentPrice} USD`).join("\n")}.
 `;
         try {
             const res = await axios.post(
