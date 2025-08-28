@@ -46,19 +46,17 @@ const BookCard = ({ book }) => {
                     <span className="text-white mb-0 px-1 bg-danger">{discount ? `-${discount}%` : ''}</span>
                 </div>
 
-                <div className="row mt-3">
-                    <div className="col-8 d-flex flex-column">
+                <div className="mt-3 d-flex align-items-center gap-2 justify-content-between">
+                    <div className="d-flex flex-column">
                         <h6 className="text-secondary fw-light mb-0 text-decoration-line-through">USD {price.toFixed(2)}</h6>
                         <h6 className="text-success mb-0">{currentPrice ? `USD ${currentPrice.toFixed(2)}` : ''}</h6>
                     </div>
-                    <div className="col-4 d-flex align-items-end">
-                        {user && user.likedBooks.includes(book.id) ? <Button variant={"danger"} className='rounded-pill' onClick={() => { removeFavoriteBook(book.id); toast.success('Đã xóa khỏi danh sách yêu thích') }}>
+                    {user && user.likedBooks.includes(book.id) ? <Button variant={"danger"} className='rounded-pill' onClick={() => { removeFavoriteBook(book.id); toast.success('Đã xóa khỏi danh sách yêu thích') }}>
+                        <FaHeart />
+                    </Button> :
+                        <Button variant={"outline-primary"} className='rounded-pill' onClick={user ? () => { setFavoriteBook(book.id); toast.success('Đã thêm vào danh sách yêu thích') } : () => { setType('login'); setShow(true); }}>
                             <FaHeart />
-                        </Button> :
-                            <Button variant={"outline-primary"} className='rounded-pill' onClick={user ? () => { setFavoriteBook(book.id); toast.success('Đã thêm vào danh sách yêu thích') } : () => { setType('login'); setShow(true); }}>
-                                <FaHeart />
-                            </Button>}
-                    </div>
+                        </Button>}
                 </div>
             </Card.Body>
         </Card>
