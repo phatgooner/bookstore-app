@@ -30,6 +30,14 @@ const SortBar = ({ onSortsChange }) => {
                 variant={selectedType === 'rating-desc' ? 'primary' : 'outline-primary'}
                 name='rating-desc'
                 onClick={(e) => handleClick(e)}>Rating giảm dần</Button>
+            <Button className='me-3'
+                variant={selectedType === 'discount-asc' ? 'primary' : 'outline-primary'}
+                name='discount-asc'
+                onClick={(e) => handleClick(e)}>Khuyến mãi tăng dần</Button>
+            <Button className='me-3'
+                variant={selectedType === 'discount-desc' ? 'primary' : 'outline-primary'}
+                name='discount-desc'
+                onClick={(e) => handleClick(e)}>Khuyến mãi giảm dần</Button>
         </div>
     );
 };

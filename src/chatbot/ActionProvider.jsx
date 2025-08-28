@@ -30,7 +30,7 @@ Bạn là 1 trợ lý ảo chuyên tư vấn sách của 1 nhà sách.
 Có một người dùng nhắn tin với bạn như sau: "${message}". Hãy trả lời người dùng một cách thân thiện nhất.
 Nếu tin nhắn đó của người dùng có liên quan tới tìm sách thì hãy gợi ý cho người dùng 1 quyển sách phù hợp và nêu ra lý do.
 Trung tâm có thư viện sách như sau:
-${books.map(b => `- Tiêu đề: ${b.title}, tác giả: ${b.author}, thể loại: ${b.type}, ngôn ngữ ${b.language}, giá gốc ${b.price} USD, khuyến mãi ${b.discount}%, giá khuyến mãi ${b.currentPrice} USD`).join("\n")}.
+${books.map((b, index) => `-${index + 1}. Tiêu đề: ${b.title}, tác giả: ${b.author}, thể loại: ${b.type}, ngôn ngữ ${b.language}, giá gốc ${b.price} USD, hiện đang khuyến mãi ${b.discount}% còn ${b.currentPrice.toFixed(2)} USD`).join("\n")}.
 `;
         try {
             const res = await axios.post(
