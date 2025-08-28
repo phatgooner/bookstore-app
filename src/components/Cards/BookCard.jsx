@@ -7,7 +7,7 @@ import { UserContext } from '../../context/UserContext';
 import BookModal from '../Modals/BookModal';
 
 const BookCard = ({ book }) => {
-    const { title, coverImage, price, rating } = book;
+    const { title, coverImage, price, rating, discount, currentPrice } = book;
     const { user, setFavoriteBook, removeFavoriteBook } = useContext(UserContext);
     const { setShow, setType } = useContext(ModalContext);
     const [showModal, setShowModal] = useState(false);
@@ -42,14 +42,20 @@ const BookCard = ({ book }) => {
                     <small className="text-muted ms-1">({rating})</small>
                 </div>
 
-                <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                    <h6 className="text-main mt-auto mb-0">USD {price.toFixed(2)}</h6>
-                    {user && user.likedBooks.includes(book.id) ? <Button variant={"danger"} className='rounded-pill' onClick={() => { removeFavoriteBook(book.id); toast.success('Đã xóa khỏi danh sách yêu thích') }}>
-                        <FaHeart />
-                    </Button> :
-                        <Button variant={"outline-primary"} className='rounded-pill' onClick={user ? () => { setFavoriteBook(book.id); toast.success('Đã thêm vào danh sách yêu thích') } : () => { setType('login'); setShow(true); }}>
+                <div className="row">
+                    <div className="col-8 d-flex flex-column gap-2">
+                        <h6 className="text-danger mb-0">{discount ? `-${discount}%` : ''}</h6>
+                        <h6 className="text-main mb-0 text-decoration-line-through">USD {price.toFixed(2)}</h6>
+                        <h6 className="text-success mb-0">{currentPrice ? `USD ${currentPrice.toFixed(2)}` : ''}</h6>
+                    </div>
+                    <div className="col-4 d-flex align-items-end">
+                        {user && user.likedBooks.includes(book.id) ? <Button variant={"danger"} className='rounded-pill' onClick={() => { removeFavoriteBook(book.id); toast.success('Đã xóa khỏi danh sách yêu thích') }}>
                             <FaHeart />
-                        </Button>}
+                        </Button> :
+                            <Button variant={"outline-primary"} className='rounded-pill' onClick={user ? () => { setFavoriteBook(book.id); toast.success('Đã thêm vào danh sách yêu thích') } : () => { setType('login'); setShow(true); }}>
+                                <FaHeart />
+                            </Button>}
+                    </div>
                 </div>
             </Card.Body>
         </Card>

@@ -36,9 +36,11 @@ const BookModal = ({ show, handleClose, book }) => {
                             <p><strong>Đánh giá:</strong> <span className="text-warning">
                                 <FaStar className="mb-1" /> {book.rating}
                             </span></p>
-                            <p><strong>Giá:</strong> <span className="text-danger fw-bold">${book.price.toFixed(2)}</span></p>
+                            <p><strong>Giá gốc:</strong> <span className="text-danger fw-bold">${book.price.toFixed(2)}</span></p>
+                            <p><strong>Giảm giá:</strong> <span className="text-danger fw-bold">{book.discount}%</span></p>
+                            <p><strong>Giá khuyến mãi:</strong> <span className="text-success fw-bold">${book.currentPrice.toFixed(2)}</span></p>
                         </div>
-                    </div>                    
+                    </div>
                 </Modal.Body>
 
                 <Modal.Footer>
