@@ -29,23 +29,26 @@ const BookCard = ({ book }) => {
             />
             <Card.Body className="d-flex flex-column justify-content-between card-content">
                 <Card.Title role='button' className="fs-6 fw-bold" onClick={() => setShowModal(true)}>{title}</Card.Title>
-                <div role='button' className="d-flex align-items-center" onClick={() => setShowModal(true)}>
-                    <span className="text-warning mb-1">
-                        {[...Array(5)].map((_, i) => (
-                            <FaStar
-                                key={i}
-                                size={14}
-                                color={i < Math.floor(rating) ? "#ffc107" : "#e4e5e9"}
-                            />
-                        ))}
-                    </span>
-                    <small className="text-muted ms-1">({rating})</small>
+
+                <div role='button' className="d-flex align-items-center gap-2 justify-content-between" onClick={() => setShowModal(true)}>
+                    <div>
+                        <span className="text-warning">
+                            {[...Array(5)].map((_, i) => (
+                                <FaStar
+                                    key={i}
+                                    size={14}
+                                    color={i < Math.floor(rating) ? "#ffc107" : "#e4e5e9"}
+                                />
+                            ))}
+                        </span>
+                        <small className="text-muted ms-1">({rating})</small>
+                    </div>
+                    <span className="text-white mb-0 px-1 bg-danger">{discount ? `-${discount}%` : ''}</span>
                 </div>
 
-                <div className="row">
-                    <div className="col-8 d-flex flex-column gap-2">
-                        <h6 className="text-danger mb-0">{discount ? `-${discount}%` : ''}</h6>
-                        <h6 className="text-main mb-0 text-decoration-line-through">USD {price.toFixed(2)}</h6>
+                <div className="row mt-3">
+                    <div className="col-8 d-flex flex-column">
+                        <h6 className="text-secondary fw-light mb-0 text-decoration-line-through">USD {price.toFixed(2)}</h6>
                         <h6 className="text-success mb-0">{currentPrice ? `USD ${currentPrice.toFixed(2)}` : ''}</h6>
                     </div>
                     <div className="col-4 d-flex align-items-end">
