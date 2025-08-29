@@ -409,3 +409,42 @@ form {
     }
   }
 }
+
+.stat-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f9fc;
+  padding: 20px;
+}
+
+.stat-box {
+  background-color: white;
+  flex: 1;
+  margin: 0 10px;
+  border-radius: 6px;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 24px;
+  color: #007bff;
+  /* Màu xanh */
+  font-weight: bold;
+}
+
+.stat-label {
+  margin-top: 5px;
+  color: #6c757d;
+  /* Màu xám nhạt */
+  font-size: 14px;
+}
+
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}

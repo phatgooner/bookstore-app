@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Collapse, Card, Form } from 'react-bootstrap';
+import { Button, Collapse, Card } from 'react-bootstrap';
 import { FaSort } from 'react-icons/fa6';
 
 const SortBar = ({ onSortsChange }) => {
@@ -46,22 +46,6 @@ const SortBar = ({ onSortsChange }) => {
                                         variant={selectedType === 'price-desc' ? 'primary' : 'outline-primary'}
                                         name='price-desc'
                                         onClick={(e) => handleClick(e)}>Giá giảm dần</Button>
-                                    <Button className='me-3'
-                                        variant={selectedType === 'rating-asc' ? 'primary' : 'outline-primary'}
-                                        name='rating-asc'
-                                        onClick={(e) => handleClick(e)}>Rating tăng dần</Button>
-                                    <Button className='me-3'
-                                        variant={selectedType === 'rating-desc' ? 'primary' : 'outline-primary'}
-                                        name='rating-desc'
-                                        onClick={(e) => handleClick(e)}>Rating giảm dần</Button>
-                                    <Button className='me-3'
-                                        variant={selectedType === 'discount-asc' ? 'primary' : 'outline-primary'}
-                                        name='discount-asc'
-                                        onClick={(e) => handleClick(e)}>Khuyến mãi tăng dần</Button>
-                                    <Button className='me-3'
-                                        variant={selectedType === 'discount-desc' ? 'primary' : 'outline-primary'}
-                                        name='discount-desc'
-                                        onClick={(e) => handleClick(e)}>Khuyến mãi giảm dần</Button>
                                 </Card.Body>
                             </Card>
                         </div>
@@ -79,22 +63,6 @@ const SortBar = ({ onSortsChange }) => {
                     variant={selectedType === 'price-desc' ? 'primary' : 'outline-primary'}
                     name='price-desc'
                     onClick={(e) => handleClick(e)}>Giá giảm dần</Button>
-                <Button className='me-3'
-                    variant={selectedType === 'rating-asc' ? 'primary' : 'outline-primary'}
-                    name='rating-asc'
-                    onClick={(e) => handleClick(e)}>Rating tăng dần</Button>
-                <Button className='me-3'
-                    variant={selectedType === 'rating-desc' ? 'primary' : 'outline-primary'}
-                    name='rating-desc'
-                    onClick={(e) => handleClick(e)}>Rating giảm dần</Button>
-                <Button className='me-3'
-                    variant={selectedType === 'discount-asc' ? 'primary' : 'outline-primary'}
-                    name='discount-asc'
-                    onClick={(e) => handleClick(e)}>Khuyến mãi tăng dần</Button>
-                <Button className='me-3'
-                    variant={selectedType === 'discount-desc' ? 'primary' : 'outline-primary'}
-                    name='discount-desc'
-                    onClick={(e) => handleClick(e)}>Khuyến mãi giảm dần</Button>
             </div>}
         </>
     );

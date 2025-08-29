@@ -1,14 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { FaStar } from "react-icons/fa";
-import { UserContext } from '../../context/UserContext'
-import { ModalContext } from '../../context/ModalContext'
-import { toast } from "react-toastify";
 
 const BookModal = ({ show, handleClose, book }) => {
-    const { user } = useContext(UserContext);
-    const { setShow, setType } = useContext(ModalContext);
-
     if (!book) return null;
 
     return (
@@ -32,24 +26,19 @@ const BookModal = ({ show, handleClose, book }) => {
                             <p><strong>Tác giả:</strong> {book.author}</p>
                             <p><strong>Ngôn ngữ:</strong> {book.language}</p>
                             <p><strong>Thể loại:</strong> {book.type}</p>
-                            <p><strong>Cấp độ:</strong> {book.level}</p>
-                            <p><strong>Đánh giá:</strong> <span className="text-warning">
-                                <FaStar className="mb-1" /> {book.rating}
-                            </span></p>
-                            <p><strong>Giá gốc:</strong> <span className="text-danger fw-bold">${book.price.toFixed(2)}</span></p>
-                            <p><strong>Giảm giá:</strong> <span className="text-danger fw-bold">{book.discount}%</span></p>
-                            <p><strong>Giá khuyến mãi:</strong> <span className="text-success fw-bold">${book.currentPrice.toFixed(2)}</span></p>
+                            <p><strong>Giá gốc:</strong> <span className="text-danger fw-bold">{book.price.toLocaleString()} VNĐ</span></p>
+                            <p><strong>Giảm giá đề xuất:</strong> <span className="text-danger fw-bold">{book.discount}%</span></p>
+                            <p><strong>Giá sau KM:</strong> <span className="text-success fw-bold">{book.currentPrice.toLocaleString()} VNĐ</span></p>
                         </div>
                     </div>
                 </Modal.Body>
 
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Đóng</Button>
-                    <Button variant="primary" onClick={user ? () => { toast.success('Đăng ký mua sách thành công'); handleClose(true) } : () => { handleClose(true); setShow(true); setType('login') }}>Đăng ký mua sách</Button>
+                    <Button variant="primary" >Thay đổi giá và xuất ra ESL</Button>
                 </Modal.Footer>
             </Modal>
         </>
-
     );
 };
 

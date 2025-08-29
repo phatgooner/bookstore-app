@@ -5,10 +5,7 @@ import LoadingScreen from './components/Layouts/LoadingScreen';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Library from './pages/Library';
-import Homepage from './pages/Homepage';
-import ContactUs from './pages/ContactUs';
 import Error from './pages/Error';
-import LikedBooks from './pages/LikedBooks';
 import ScrollToTop from './components/Tools/ScrollToTop';
 
 
@@ -20,10 +17,7 @@ root.render(
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<Homepage />} />
-          <Route path="/library" element={<Library />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/liked-books" element={<LikedBooks />} />
+          <Route index element={<Library />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

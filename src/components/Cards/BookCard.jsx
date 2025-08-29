@@ -1,15 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, Button } from "react-bootstrap";
-import { FaStar, FaHeart } from "react-icons/fa";
-import { toast } from 'react-toastify';
-import { ModalContext } from '../../context/ModalContext';
-import { UserContext } from '../../context/UserContext';
 import BookModal from '../Modals/BookModal';
 
 const BookCard = ({ book }) => {
-    const { title, coverImage, price, rating, discount, currentPrice } = book;
-    const { user, setFavoriteBook, removeFavoriteBook } = useContext(UserContext);
-    const { setShow, setType } = useContext(ModalContext);
+    const { title, coverImage, price } = book;
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -25,39 +19,17 @@ const BookCard = ({ book }) => {
                 src={coverImage}
                 alt={title}
                 style={{ height: "240px", objectFit: "cover", cursor: "pointer" }}
-                onClick={() => setShowModal(true)}
             />
-            <Card.Body className="d-flex flex-column justify-content-between card-content">
-                <Card.Title role='button' className="fs-6 fw-bold" onClick={() => setShowModal(true)}>{title}</Card.Title>
+            <Card.Body className="d-flex flex-column justify-content-between card-content gap-3">
+                <Card.Title role='button' className="fs-6 fw-bold" >{title}</Card.Title>
 
-                <div role='button' className="d-flex align-items-center gap-2 justify-content-between" onClick={() => setShowModal(true)}>
+                <div role='button' className="d-flex align-items-center gap-2 justify-content-between" >
                     <div>
-                        <span className="text-warning">
-                            {[...Array(5)].map((_, i) => (
-                                <FaStar
-                                    key={i}
-                                    size={14}
-                                    color={i < Math.floor(rating) ? "#ffc107" : "#e4e5e9"}
-                                />
-                            ))}
-                        </span>
-                        <small className="text-muted ms-1">({rating})</small>
+                        Giá gốc: <span className="text-danger fw-bold">{price.toLocaleString()} VNĐ</span>
                     </div>
-                    <span className="text-white mb-0 px-1 bg-danger">{discount ? `-${discount}%` : ''}</span>
                 </div>
 
-                <div className="mt-3 d-flex align-items-center gap-2 justify-content-between">
-                    <div className="d-flex flex-column">
-                        <h6 className="text-secondary fw-light mb-0 text-decoration-line-through">USD {price.toFixed(2)}</h6>
-                        <h6 className="text-success mb-0">{currentPrice ? `USD ${currentPrice.toFixed(2)}` : ''}</h6>
-                    </div>
-                    {user && user.likedBooks.includes(book.id) ? <Button variant={"danger"} className='rounded-pill' onClick={() => { removeFavoriteBook(book.id); toast.success('Đã xóa khỏi danh sách yêu thích') }}>
-                        <FaHeart />
-                    </Button> :
-                        <Button variant={"outline-primary"} className='rounded-pill' onClick={user ? () => { setFavoriteBook(book.id); toast.success('Đã thêm vào danh sách yêu thích') } : () => { setType('login'); setShow(true); }}>
-                            <FaHeart />
-                        </Button>}
-                </div>
+                <Button variant="outline-primary" onClick={() => setShowModal(true)}>Đề xuất giá</Button>
             </Card.Body>
         </Card>
     );

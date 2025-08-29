@@ -6,7 +6,11 @@ function getRndInteger(min, max) {
 libraryData.forEach(item => {
     const discount = getRndInteger(10, 30);
     item.discount = discount;
-    item.currentPrice = item.price - (item.price * discount / 100);
+    item.currentPrice = Math.floor(item.price - (item.price * discount / 100));
+    const price = item.price * 26000;
+    const currentPrice = item.currentPrice * 26000;
+    item.price = price;
+    item.currentPrice = currentPrice;
 })
 
 const data = libraryData;

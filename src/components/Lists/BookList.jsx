@@ -25,9 +25,9 @@ const BookList = ({ libraryData }) => {
         const languageMatch = filters.language ? book.language === filters.language : true;
         const ratingMatch = filters.rating ? book.rating >= parseFloat(filters.rating) : true;
         const priceMatch =
-            filters.price === 'lt10' ? book.currentPrice < 10 :
-                filters.price === '10to20' ? book.currentPrice >= 10 && book.currentPrice <= 20 :
-                    filters.price === 'gt20' ? book.currentPrice > 20 :
+            filters.price === 'lt200' ? book.price < 200000 :
+                filters.price === '200to500' ? book.price >= 200000 && book.price <= 500000 :
+                    filters.price === 'gt500' ? book.price > 500000 :
                         true;
 
         return nameMatch && languageMatch && ratingMatch && priceMatch;
